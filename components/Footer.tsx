@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
@@ -6,9 +7,26 @@ export default function Footer() {
       <div className="max-w-[1280px] mx-auto px-5 md:px-10 lg:px-20 grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
         
         <div className="md:col-span-1 flex flex-col gap-4">
-          <Link href="/" className="text-text-primary font-bold tracking-wider-5 text-2xl">
-            SONIC<span className="text-text-muted">HIGHWAYS</span>
+          <Link
+            href="/"
+            className="w-fit"
+            aria-label="Sonic Highways - Início"
+          >
+            <Image
+              src="/images/logo/SH-logo-white.png"
+              alt="Sonic Highways"
+              width={586}
+              height={332}
+              className="
+                w-[150px]
+                sm:w-[165px]
+                md:w-[175px]
+                h-auto
+                object-contain
+              "
+            />
           </Link>
+
           <p className="font-inter text-text-muted text-xs leading-relaxed max-w-[250px]">
             Reverberating the 90s. Building the next decade. Authentic Grunge experience.
           </p>
@@ -18,11 +36,19 @@ export default function Footer() {
           <p className="font-inter text-white font-semibold text-xs uppercase tracking-wider-5">
             Contato
           </p>
-          <a href="mailto:contato@sonichighways.com.br" className="font-inter text-text-muted hover:text-white transition-colors text-sm">
-            contato@sonichighways.com.br
+
+          <a
+            href="mailto:contato@sonichighways.com.br"
+            className="font-inter text-text-muted hover:text-white transition-colors text-sm"
+          >
+            bandasonichighways@gmail.com
           </a>
-          <a href="tel:+5581900000000" className="font-inter text-text-muted hover:text-white transition-colors text-sm">
-            +55 81 90000-0000
+
+          <a
+            href="tel:+5581900000000"
+            className="font-inter text-text-muted hover:text-white transition-colors text-sm"
+          >
+            +55 81 99685-7734
           </a>
         </div>
 
@@ -30,17 +56,32 @@ export default function Footer() {
           <p className="font-inter text-white font-semibold text-xs uppercase tracking-wider-5">
             Links
           </p>
-          <Link href="/imprensa" className="text-text-muted hover:text-brand-accent transition-colors text-sm w-fit">
+
+          <Link
+            href="/imprensa"
+            className="text-text-muted hover:text-brand-accent transition-colors text-sm w-fit"
+          >
             Material para Divulgação
           </Link>
-          <a href="https://instagram.com/shrecife" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-brand-accent transition-colors text-sm w-fit">
+
+          <a
+            href="https://instagram.com/shrecife"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-text-muted hover:text-brand-accent transition-colors text-sm w-fit"
+          >
             Instagram
           </a>
-          <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-brand-accent transition-colors text-sm w-fit">
+
+          <a
+            href="https://www.youtube.com/@SonicHighwaysband"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-text-muted hover:text-brand-accent transition-colors text-sm w-fit"
+          >
             YouTube
           </a>
         </div>
-
 
       </div>
 
@@ -48,6 +89,7 @@ export default function Footer() {
         <p className="font-inter text-text-muted text-xs uppercase tracking-wider-5 text-center sm:text-left">
           © {new Date().getFullYear()} Sonic Highways. Todos os direitos reservados.
         </p>
+
         <p className="font-inter text-text-muted text-xs">
           Recife, PE - Brasil
         </p>
