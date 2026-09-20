@@ -77,7 +77,7 @@ export default function Home() {
     {
       nome: "Ynara Ferreira",
       funcao: "Guitarrista",
-      img: "/images/band/Ynara1.png",
+      img: "/images/band/Ynara2.jpeg",
     },
     {
       nome: "Ícaro Sales",
