@@ -103,7 +103,7 @@ export default function Imprensa() {
                 </p>
 
                 <a
-                  href="mailto:contato@sonichighways.com.br"
+                  href="mailto:bandasonichighways@gmail.com"
                   className="text-white hover:text-brand-accent transition-colors"
                 >
                   bandasonichighways@gmail.com

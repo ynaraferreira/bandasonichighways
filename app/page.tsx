@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   const [activeShow, setActiveShow] = useState<number | null>(null);
-  const [activeVideo, setActiveVideo] = useState("SEU_ID_DO_VIDEO_1");
+  const [activeVideo, setActiveVideo] = useState("4cHEqlVy8SQ");
   const [lightboxImg, setLightboxImg] = useState<string | null>(null);
   const [galeriaAberta, setGaleriaAberta] = useState(false);
   const [agora, setAgora] = useState<Date | null>(null);
@@ -94,28 +94,28 @@ export default function Home() {
   /* =========================
      SHOWS
      ========================= */
-
-  const shows = [
-    {
-      data: "04 SET",
-      dateTime: "2026-09-04T23:59:59-03:00",
-      local: "Darkside Studio - Recife/PE",
-      info: "Início às 19h. Ingressos na portaria.",
-    },
-    {
-      data: "26 SET",
-      dateTime: "2026-09-26T23:59:59-03:00",
-      local: "Oficina Rock Café (Ruptura Fest)",
-      info: "Início às 19h. Sujeito a lotação.",
-    },
-    {
-      data: "10 OUT",
-      dateTime: "2026-10-10T23:59:59-03:00",
-      local: "Moto Club - Ferreiros/PE",
-      info: "Entrada franca para motociclistas.",
-    },
-  ];
-
+const shows = [
+  {
+    data: "04 SET",
+    dateTime: "2026-09-04T23:59:59-03:00",
+    local: "Darkside Studio - Recife/PE",
+    info: "Início às 19h. Ingressos na portaria.",
+  },
+  {
+    data: "26 SET",
+    dateTime: "2026-09-26T23:59:59-03:00",
+    local: "Oficina Rock Café (Ruptura Fest III)",
+    info: "Abertura dos portões às 18h. Sujeito a lotação.",
+    link: "https://www.sympla.com.br/evento/ruptura-fest-iii-oficina-rock-cafe/3527108?share_id=copiarlink",
+    linkText: "Comprar ingressos",
+  },
+  {
+    data: "10 OUT",
+    dateTime: "2026-10-10T23:59:59-03:00",
+    local: "Moto Club - Ferreiros/PE",
+    info: "Evento privado.",
+  },
+];
   const showsOrdenados = [...shows].sort(
     (a, b) =>
       new Date(a.dateTime).getTime() -
@@ -143,21 +143,17 @@ export default function Home() {
      VÍDEOS
      ========================= */
 
-  const playlist = [
-    {
-      id: "SEU_ID_DO_VIDEO_1",
-      thumb: "/images/gallery/thumb-1.jpg",
-    },
-    {
-      id: "SEU_ID_DO_VIDEO_2",
-      thumb: "/images/gallery/thumb-2.jpg",
-    },
-    {
-      id: "SEU_ID_DO_VIDEO_3",
-      thumb: "/images/gallery/thumb-3.jpg",
-    },
-  ];
-
+const playlist = [
+  {
+    id: "-E6vttHIzIA",
+  },
+  {
+    id: "4cHEqlVy8SQ",
+  },
+  {
+    id: "stl1WEprvM8",
+  },
+];
   /* =========================
      GALERIA
      ========================= */
@@ -559,94 +555,105 @@ const galeriaDestaque = galeria.slice(0, 6);
         </div>
 
       </section>
+{/* =========================
+    SEÇÃO VÍDEOS
+    ========================= */}
 
-      {/* =========================
-          SEÇÃO VÍDEOS
-          ========================= */}
+<section
+  id="videos"
+  className="w-full bg-[#0D0D0D] py-24 border-t border-border-subtle"
+>
+  <div className="max-w-[1280px] mx-auto px-5 md:px-10 lg:px-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
-      <section
-        id="videos"
-        className="w-full bg-[#0D0D0D] py-24 border-t border-border-subtle"
-      >
+    {/* LADO ESQUERDO */}
+    <div className="lg:col-span-4 flex flex-col justify-center">
 
-        <div className="max-w-[1280px] mx-auto px-5 md:px-10 lg:px-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <h3 className="text-brand-accent font-inter text-sm font-bold tracking-wider-8 uppercase mb-2"></h3>
 
-          <div className="lg:col-span-4 flex flex-col justify-center">
+      <h2 className="text-white font-clash text-5xl md:text-6xl uppercase mb-6">
+        Vídeos
+      </h2>
 
-            <h3 className="text-brand-accent font-inter text-sm font-bold tracking-wider-8 uppercase mb-2"></h3>
+      <p className="font-inter text-text-muted text-sm leading-relaxed mb-8">
+        Confira nossas últimas apresentações e sessões de estúdio.
+      </p>
 
-            <h2 className="text-white font-clash text-5xl md:text-6xl uppercase mb-6">
-              Vídeos
-            </h2>
+      {/* THUMBNAILS */}
+      <div className="flex gap-4 overflow-x-auto pb-4 snap-x">
 
-            <p className="font-inter text-text-muted text-sm leading-relaxed mb-8">
-              Confira nossas últimas apresentações e sessões de estúdio.
-            </p>
+        {playlist.map((video) => (
+          <button
+            key={video.id}
+            type="button"
+            onClick={() => setActiveVideo(video.id)}
+            aria-label={`Selecionar vídeo ${video.id}`}
+            className={`
+              relative
+              shrink-0
+              w-32
+              aspect-video
 
-            {/* THUMBNAILS */}
-            <div className="flex gap-4 overflow-x-auto pb-4 snap-x">
+              bg-bg-surface
 
-              {playlist.map((video) => (
-                <button
-                  key={video.id}
-                  type="button"
-                  onClick={() => setActiveVideo(video.id)}
-                  className={`
-                    relative
-                    shrink-0
-                    w-32
-                    aspect-video
+              border-2
 
-                    bg-bg-surface
+              transition-all
+              duration-300
 
-                    border-2
+              overflow-hidden
+              snap-center
 
-                    transition-all
-                    overflow-hidden
-                    snap-center
+              ${
+                activeVideo === video.id
+                  ? "border-brand-accent"
+                  : "border-border-subtle hover:border-white"
+              }
+            `}
+          >
 
-                    ${
-                      activeVideo === video.id
-                        ? "border-brand-accent"
-                        : "border-border-subtle hover:border-white"
-                    }
-                  `}
-                >
+            {/* THUMBNAIL AUTOMÁTICA DO YOUTUBE */}
+            <img
+              src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
+              alt="Thumbnail do vídeo da Sonic Highways"
+              className="
+                absolute
+                inset-0
+                w-full
+                h-full
+                object-cover
+              "
+            />
 
-                  <Image
-                    src={video.thumb}
-                    alt="Thumbnail"
-                    fill
-                    className="object-cover"
-                  />
+            {/* INDICADOR DO VÍDEO SELECIONADO */}
+            {activeVideo === video.id && (
+              <div className="absolute inset-0 bg-brand-accent/20 flex items-center justify-center text-white text-xs">
+                ▶
+              </div>
+            )}
 
-                  {activeVideo === video.id && (
-                    <div className="absolute inset-0 bg-brand-accent/20 flex items-center justify-center text-white text-xs">
-                      ▶
-                    </div>
-                  )}
+          </button>
+        ))}
 
-                </button>
-              ))}
+      </div>
 
-            </div>
+    </div>
 
-          </div>
+    {/* PLAYER PRINCIPAL */}
+    <div className="lg:col-span-8 w-full aspect-video bg-bg-surface border border-border-subtle relative overflow-hidden shadow-2xl">
 
-          <div className="lg:col-span-8 w-full aspect-video bg-bg-surface border border-border-subtle relative overflow-hidden shadow-2xl">
+      <iframe
+        key={activeVideo}
+        className="w-full h-full"
+        src={`https://www.youtube.com/embed/${activeVideo}?autoplay=0&rel=0`}
+        title="Sonic Highways Video Player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+      ></iframe>
 
-            <iframe
-              className="w-full h-full"
-              src={`https://www.youtube.com/embed/${activeVideo}?autoplay=0&rel=0`}
-              title="Sonic Highways Video Player"
-              allowFullScreen
-            ></iframe>
+    </div>
 
-          </div>
-
-        </div>
-
-      </section>
+  </div>
+</section>
 
       {/* =========================
           SEÇÃO AGENDA
@@ -752,9 +759,24 @@ const galeriaDestaque = galeria.slice(0, 6);
                       }`}
                     >
 
-                      <p className="text-text-muted text-sm font-inter border-l-2 border-brand-accent pl-4">
-                        {show.info}
-                      </p>
+                 <div className="border-l-2 border-brand-accent pl-4">
+
+  <p className="text-text-muted text-sm font-inter">
+    {show.info}
+  </p>
+
+  {show.link && (
+    <a
+      href={show.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-block mt-3 text-brand-accent font-inter text-xs font-bold uppercase tracking-wider-5 hover:text-white transition-colors"
+    >
+      {show.linkText} ↗
+    </a>
+  )}
+
+</div>
 
                     </div>
                   )}

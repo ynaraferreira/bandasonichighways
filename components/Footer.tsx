@@ -38,7 +38,7 @@ export default function Footer() {
           </p>
 
           <a
-            href="mailto:contato@sonichighways.com.br"
+            href="mailto:bandasonichighways@gmail.com"
             className="font-inter text-text-muted hover:text-white transition-colors text-sm"
           >
             bandasonichighways@gmail.com
